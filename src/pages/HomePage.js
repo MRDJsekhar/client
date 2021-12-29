@@ -13,6 +13,8 @@ import MainSearch from '../components/MainSearch';
 import CloudIcon from '@mui/icons-material/Cloud';
 import { Grid } from '@mui/material';
 import DropDown from '../components/DropDown';
+import Badge from '@mui/material/Badge';
+import AccountComponent from '../components/AccountComponent';
 
 export default function HomePage() {
 	return (
@@ -34,9 +36,11 @@ export default function HomePage() {
 					</Menu>
 					<StarIcon sx={{ marginLeft: 'auto' }} />
 					<SettingsIcon sx={{ minWidth: 100 }} />
-					<NotificationsNoneIcon />
+					<Badge badgeContent={3} color="success">
+						<NotificationsNoneIcon />
+					</Badge>
 					<MainSearch />
-					<AccountCircleIcon />
+					<AccountComponent />
 				</Toolbar>
 			</AppBar>
 			<DropDown />
