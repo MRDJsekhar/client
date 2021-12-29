@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Home from './pages/AppBarr';
+import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 
 const App = () => {
@@ -8,7 +8,7 @@ const App = () => {
 		<div>
 			<Routes>
 				<Route exact path="/" element={<LoginPage />} />
-				<Route exact path="/home" element={<Home />} />
+				<Route exact path="/home" element={<HomePage />} />
 			</Routes>
 		</div>
 	);

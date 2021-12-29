@@ -10,39 +10,11 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MainSearch from '../components/MainSearch';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 import CloudIcon from '@mui/icons-material/Cloud';
 import { Grid } from '@mui/material';
 import DropDown from '../components/DropDown';
 
-export default function AppBarr() {
-	const [ auth, setAuth ] = React.useState(true);
-	const [ anchorEl, setAnchorEl ] = React.useState(null);
-	const handleChange = (event) => {
-		setAuth(event.target.checked);
-	};
-	const handleMenu = (event) => {
-		setAnchorEl(event.currentTarget);
-	};
-
-	const handleClose = () => {
-		setAnchorEl(null);
-	};
-
-	const theme = {
-		spacing: [ 0, 2, 3, 5, 8 ]
-	};
-	const Item = styled(Paper)(({ theme }) => ({
-		...theme.typography.body2,
-
-		padding: theme.spacing(1),
-
-		textAlign: 'center',
-
-		color: theme.palette.text.secondary
-	}));
-
+export default function HomePage() {
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar position="static">
@@ -57,17 +29,13 @@ export default function AppBarr() {
 							</Typography>
 						</Grid>
 					</Grid>
-
 					<Menu>
 						<MenuItem />
 					</Menu>
-
 					<StarIcon sx={{ marginLeft: 'auto' }} />
-
 					<SettingsIcon sx={{ minWidth: 100 }} />
 					<NotificationsNoneIcon />
 					<MainSearch />
-
 					<AccountCircleIcon />
 				</Toolbar>
 			</AppBar>
