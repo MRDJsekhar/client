@@ -22,8 +22,11 @@ const componentChange = (state = initialState, action) => {
 				component: 'SimMaster'
 			};
 		}
-		case 'pt-master' : {
-			return {}
+		case 'pt-master': {
+			return {
+				...state,
+				component: 'ParameterThresholdpage'
+			};
 		}
 
 		default: {
