@@ -58,7 +58,7 @@ const LoginPage = () => {
 						}}
 					/>
 					<div style={{ height: 20 }} />
-					<Button type="submit" color="primary" size="medium" variant="contained">
+					<Button type="submit" color="primary" size="small" variant="contained" style={{ width: '30%' }}>
 						<Link href="home" color="inherit" underline="none">
 							Login
 						</Link>

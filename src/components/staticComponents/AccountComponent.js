@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from '@mui/material';
 
-export default function BasicMenu() {
+export default function AccountComponent() {
 	const [ anchorEl, setAnchorEl ] = React.useState(null);
 	const open = Boolean(anchorEl);
 	const handleClick = (event) => {
@@ -24,7 +24,6 @@ export default function BasicMenu() {
 				aria-expanded={open ? 'true' : undefined}
 				onClick={handleClick}
 				color="inherit"
-				style={{ borderRadius: '50px' }}
 			>
 				<AccountCircleIcon />
 			</Button>
@@ -40,7 +39,7 @@ export default function BasicMenu() {
 				<MenuItem onClick={handleClose}>Profile</MenuItem>
 				<MenuItem onClick={handleClose}>My account</MenuItem>
 				<MenuItem onClick={handleClose}>
-					<Link href="/" color="primary" underline="none">
+					<Link href="/" color="palevioletred" underline="none">
 						Logout
 					</Link>
 				</MenuItem>
