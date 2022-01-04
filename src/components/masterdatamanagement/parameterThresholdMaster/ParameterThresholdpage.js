@@ -1,12 +1,10 @@
 import React from 'react';
 import PTAppBar from './ptcChildComponents/PTAppbar';
 
-const ParameterThresholdpage = () => {
+export function ParameterThresholdpage() {
 	return (
 		<div>
 			<PTAppBar />
 		</div>
 	);
-};
-
-export default ParameterThresholdpage;
+}
