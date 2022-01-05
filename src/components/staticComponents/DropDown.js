@@ -49,8 +49,16 @@ export default function SimpleAccordion() {
 						<Typography>𝐌𝐚𝐬𝐭𝐞𝐫 𝐝𝐚𝐭𝐚 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭</Typography>
 					</AccordionSummary>
 					<AccordionDetails>
-						<Typography gutterBottom>Billing Determinants</Typography>
-						<Typography onClick={() => dispatch({ type: 'pt-master' })} style={{ cursor: 'pointer' }}>Parameter Threshold Master</Typography>
+						<Typography
+							gutterBottom
+							onClick={() => dispatch({ type: 'billing-determinants' })}
+							style={{ cursor: 'pointer' }}
+						>
+							Billing Determinants
+						</Typography>
+						<Typography onClick={() => dispatch({ type: 'pt-master' })} style={{ cursor: 'pointer' }}>
+							Parameter Threshold Master
+						</Typography>
 					</AccordionDetails>
 				</Accordion>
 			</Grid>

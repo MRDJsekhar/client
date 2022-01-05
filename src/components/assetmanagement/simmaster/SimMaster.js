@@ -18,25 +18,8 @@ import {
 } from '@mui/material';
 import Home from '@mui/icons-material/Home';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import dropdowns from './data'
 
-const dropdowns = [
-	{
-		value: '1',
-		label: 'GPRS-4G'
-	},
-	{
-		value: '2',
-		label: 'GPRS-3G'
-	},
-	{
-		value: '3',
-		label: 'EDGE'
-	},
-	{
-		value: '4',
-		label: 'SIM'
-	}
-];
 
 export function SimMaster() {
 	const [ currency, setCurrency ] = useState('');
@@ -57,7 +40,7 @@ export function SimMaster() {
 			<CssBaseline />
 			<AppBar position="relative">
 				<Toolbar>
-					<Box sx={{ width: '100%', maxWidth: 400 }}>
+					<Box sx={{ width: '100%', maxWidth: 300 }}>
 						<Typography variant="h6" gutterBottom component="div">
 							<Home/>
 							<KeyboardArrowRightIcon />Asset Management

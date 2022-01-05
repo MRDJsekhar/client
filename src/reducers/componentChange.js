@@ -13,7 +13,7 @@ const componentChange = (state = initialState, action) => {
 		case 'dcu-master': {
 			return {
 				...state,
-				component: 'DCUMaster'
+				component: 'NavBar'
 			};
 		}
 		case 'sim-master': {
@@ -26,6 +26,24 @@ const componentChange = (state = initialState, action) => {
 			return {
 				...state,
 				component: 'ParameterThresholdpage'
+			};
+		}
+		case 'new-meter': {
+			return {
+				...state,
+				component: 'BasicTabs'
+			};
+		}
+		case 'search': {
+			return {
+				...state,
+				component: 'Search'
+			};
+		}
+		case 'billing-determinants': {
+			return {
+				...state,
+				component: 'BillingDeterminants'
 			};
 		}
 
