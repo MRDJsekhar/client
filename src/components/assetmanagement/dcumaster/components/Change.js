@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Card, Grid } from '@mui/material';
 import { TextField } from '@mui/material';
 import DropdownClass from '../dcumasterpage/DcuMastersub';
 import { styled } from '@mui/material/styles';
@@ -22,7 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const Change = () => {
 	const classes = useStyles();
 	return (
-		<card>
+		<Card elevation={5}>
 			<Box
 				component="form"
 				sx={{
@@ -81,7 +81,7 @@ const Change = () => {
 				<Button variant="contained">Submit</Button>
 			</Stack>
 			<br />
-		</card>
+		</Card>
 	);
 };
 export default Change;

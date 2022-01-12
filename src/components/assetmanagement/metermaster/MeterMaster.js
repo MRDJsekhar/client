@@ -19,7 +19,7 @@ const MeterMaster = () => {
 	const classes = useStyles();
 	const dispatch = useDispatch();
 	return (
-		<card>
+		<Card elevation={8}>
 			<Box
 				component="form"
 				sx={{
@@ -188,7 +188,7 @@ const MeterMaster = () => {
 				</Button>
 			</Stack>
 			<br />
-		</card>
+		</Card>
 	);
 };
 export default MeterMaster;

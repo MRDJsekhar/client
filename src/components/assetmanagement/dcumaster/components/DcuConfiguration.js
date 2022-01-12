@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Card, Grid } from '@mui/material';
 import { TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Button from '@material-ui/core/Button';
@@ -21,7 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const DcuConfiguration = () => {
 	const classes = useStyles();
 	return (
-		<card>
+		<Card elevation={5}>
 			<Box
 				component="form"
 				sx={{
@@ -122,7 +122,7 @@ const DcuConfiguration = () => {
 				<Button variant="contained">Submit</Button>
 			</Stack>
 			<br />
-		</card>
+		</Card>
 	);
 };
 export default DcuConfiguration;
