@@ -12,105 +12,24 @@ import Menu from '@mui/material/Menu';
 import { Grid } from '@mui/material';
 
 const PTAppBar = () => {
-	const [ anchorElNav, setAnchorElNav ] = React.useState(null);
-	const [ anchorElUser, setAnchorElUser ] = React.useState(null);
-
-	const handleOpenNavMenu = (event) => {
-		setAnchorElNav(event.currentTarget);
-	};
-	const handleOpenUserMenu = (event) => {
-		setAnchorElUser(event.currentTarget);
-	};
-
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
-
-	const handleCloseUserMenu = () => {
-		setAnchorElUser(null);
-	};
-
 	return (
 		<AppBar position="static">
 			<Container maxWidth="xl">
 				<Toolbar disableGutters>
-					<Typography
-						variant="h6"
-						noWrap
-						component="div"
-						sx={{ mr: 1, display: { xs: 'none', md: 'flex' } }}
-					/>
-					<Grid container spacing={2}>
+					<Grid container>
 						<Grid item spacing={1}>
 							<HomeIcon />
 						</Grid>
 						<Grid item spacing={1}>
 							<ArrowForwardIosIcon />
 						</Grid>
-						<Grid item spacing={10}>
+						<Grid item spacing={5}>
 							<Typography variant="h6">Configuration</Typography>
 						</Grid>
-
 						<Grid item xs={12}>
-							<Typography variant="h5">Parameter Threshold Meter</Typography>
+							<Typography variant="subtitle1">Parameter Threshold Master</Typography>
 						</Grid>
 					</Grid>
-					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-						<IconButton
-							size="large"
-							aria-label="account of current user"
-							aria-controls="menu-appbar"
-							aria-haspopup="true"
-							onClick={handleOpenNavMenu}
-							color="inherit"
-						/>
-						<Menu
-							id="menu-appbar"
-							anchorEl={anchorElNav}
-							anchorOrigin={{
-								vertical: 'bottom',
-								horizontal: 'left'
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'left'
-							}}
-							open={Boolean(anchorElNav)}
-							onClose={handleCloseNavMenu}
-							sx={{
-								display: { xs: 'block', md: 'none' }
-							}}
-						/>
-					</Box>
-					<Typography
-						variant="h6"
-						noWrap
-						component="div"
-						sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-					/>
-
-					<Box sx={{ flexGrow: 0 }}>
-						<Tooltip title="Open settings">
-							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} />
-						</Tooltip>
-						<Menu
-							sx={{ mt: '45px' }}
-							id="menu-appbar"
-							anchorEl={anchorElUser}
-							anchorOrigin={{
-								vertical: 'top',
-								horizontal: 'right'
-							}}
-							keepMounted
-							transformOrigin={{
-								vertical: 'top',
-								horizontal: 'right'
-							}}
-							open={Boolean(anchorElUser)}
-							onClose={handleCloseUserMenu}
-						/>
-					</Box>
 				</Toolbar>
 			</Container>
 		</AppBar>

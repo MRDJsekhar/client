@@ -4,7 +4,6 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import IconButton from '@material-ui/core/IconButton';
 import { Stack, Grid, Button, TextField } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
-
 import useStyles from './useStyle';
 
 function Make() {
@@ -71,11 +70,20 @@ function Make() {
 				<br />
 				<Grid container direction="column" alignItems="center" justify="center">
 					<Stack spacing={2} direction="row">
-						<Button variant="outlined" color="error" onClick={clearField}>
+						<Button
+							style={{ maxWidth: '400px', maxHeight: '30px', minWidth: '100px', minHeight: '30px' }}
+							variant="outlined"
+							color="error"
+							onClick={clearField}
+						>
 							Clear
 						</Button>
 
-						<Button variant="contained" onClick={handleSubmit}>
+						<Button
+							style={{ maxWidth: '400px', maxHeight: '200px', minWidth: '100px', minHeight: '30px' }}
+							variant="contained"
+							onClick={handleSubmit}
+						>
 							Submit
 						</Button>
 					</Stack>

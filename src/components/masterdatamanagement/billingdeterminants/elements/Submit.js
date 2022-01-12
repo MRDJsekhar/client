@@ -24,6 +24,8 @@ export default function Submit(){
             alert('After submitting data cannot be deleted, would you like to proceed?');
             }}
           >Clear</Button>
+
      </>
+
     )
 }

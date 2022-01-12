@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState } from 'react';
 import { Grid } from '@mui/material';
 import Card from '@mui/material/Card';
 import { TextField } from '@mui/material';
@@ -11,42 +11,15 @@ import { Link } from '@mui/material';
 import { Box } from '@mui/material';
 import useStyles from './newmeter/useStyle';
 import { CssBaseline } from '@mui/material';
-import { useState } from 'react';
+import { dropdowns, Circle, Division, SubDivision, Section, SubStation, Feeder, DTR } from './Dropdowns';
 import { useDispatch } from 'react-redux';
 import NavBar from './NavBar';
 
-const Item = styled(Paper)(({ theme }) => ({
-	...theme.typography.body2,
-	padding: theme.spacing(1),
-	textAlign: 'center',
-	color: theme.palette.text.secondary
-}));
-
-const dropdowns = [
-	{
-		value: '1',
-		label: 'South'
-	},
-	{
-		value: '2',
-		label: 'North'
-	},
-	{
-		value: '3',
-		label: 'East'
-	},
-	{
-		value: '4',
-		label: 'West'
-	}
-];
-
-export function MeterMaster() {
-	const dispatch = useDispatch();
+const MeterMaster = () => {
 	const classes = useStyles();
+	const dispatch = useDispatch();
 	return (
 		<card>
-			<NavBar />
 			<Box
 				component="form"
 				sx={{
@@ -56,6 +29,7 @@ export function MeterMaster() {
 				autoComplete="off"
 			>
 				<CssBaseline />
+				<NavBar />
 
 				<Box sx={{ display: 'flex', p: 1, m: 1, bgcolor: 'background.paper', flexDirection: 'row' }} />
 
@@ -77,9 +51,9 @@ export function MeterMaster() {
 								native: true
 							}}
 						>
-							{dropdowns.map((option) => (
-								<option key={option.value} value={option.value}>
-									{option.label}
+							{dropdowns.map((item) => (
+								<option key={item.label} value={item.label}>
+									{item.label}
 								</option>
 							))}
 						</TextField>
@@ -94,7 +68,13 @@ export function MeterMaster() {
 						SelectProps={{
 							native: true
 						}}
-					/>
+					>
+						{Circle.map((item) => (
+							<option key={item.label} value={item.label}>
+								{item.label}
+							</option>
+						))}
+					</TextField>
 
 					<TextField
 						id="outlined-select-currency-native"
@@ -104,7 +84,13 @@ export function MeterMaster() {
 						SelectProps={{
 							native: true
 						}}
-					/>
+					>
+						{Division.map((item) => (
+							<option key={item.label} value={item.label}>
+								{item.label}
+							</option>
+						))}
+					</TextField>
 				</Grid>
 
 				<Grid container direction="row" justifyContent="center" alignContent="center">
@@ -116,7 +102,13 @@ export function MeterMaster() {
 						SelectProps={{
 							native: true
 						}}
-					/>
+					>
+						{SubDivision.map((item) => (
+							<option key={item.label} value={item.label}>
+								{item.label}
+							</option>
+						))}
+					</TextField>
 					<TextField
 						id="outlined-select-currency-native"
 						select
@@ -125,7 +117,13 @@ export function MeterMaster() {
 						SelectProps={{
 							native: true
 						}}
-					/>
+					>
+						{Section.map((item) => (
+							<option key={item.label} value={item.label}>
+								{item.label}
+							</option>
+						))}
+					</TextField>
 				</Grid>
 
 				<Grid container direction="row" justifyContent="center" alignContent="center">
@@ -137,7 +135,13 @@ export function MeterMaster() {
 						SelectProps={{
 							native: true
 						}}
-					/>
+					>
+						{SubStation.map((item) => (
+							<option key={item.label} value={item.label}>
+								{item.label}
+							</option>
+						))}
+					</TextField>
 
 					<TextField
 						id="outlined-select-currency-native"
@@ -147,7 +151,13 @@ export function MeterMaster() {
 						SelectProps={{
 							native: true
 						}}
-					/>
+					>
+						{Feeder.map((item) => (
+							<option key={item.label} value={item.label}>
+								{item.label}
+							</option>
+						))}
+					</TextField>
 				</Grid>
 
 				<Grid container direction="row" justifyContent="center" alignContent="center">
@@ -156,7 +166,6 @@ export function MeterMaster() {
 						<TextField id="outlined-select-currency-native" required label="Meter No: " />
 					</div>
 				</Grid>
-
 				<Grid container direction="row" justifyContent="center" alignContent="center">
 					<div>
 						<TextField id="outlined-select-currency-native" required label="Service No: " />
@@ -178,6 +187,8 @@ export function MeterMaster() {
 					NEW METER
 				</Button>
 			</Stack>
+			<br />
 		</card>
 	);
-}
+};
+export default MeterMaster;

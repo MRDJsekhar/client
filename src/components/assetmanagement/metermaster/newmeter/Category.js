@@ -66,12 +66,20 @@ function Category() {
 				))}
 				<br />
 				<Grid container direction="column" alignItems="center" justify="center">
-					<Stack spacing={2} direction="row">
-						<Button variant="outlined" color="error" onClick={clearField}>
+					<Stack spacing={3} direction="row">
+						<Button
+							style={{ maxWidth: '400px', maxHeight: '30px', minWidth: '100px', minHeight: '30px' }}
+							variant="outlined"
+							color="error"
+							onClick={clearField}
+						>
 							Clear
 						</Button>
-
-						<Button variant="contained" onClick={handleSubmit}>
+						<Button
+							style={{ maxWidth: '400px', maxHeight: '200px', minWidth: '100px', minHeight: '30px' }}
+							variant="contained"
+							onClick={handleSubmit}
+						>
 							Submit
 						</Button>
 					</Stack>

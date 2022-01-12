@@ -18,7 +18,7 @@ import AccountComponent from './AccountComponent';
 const Header = () => {
 	return (
 		<Grid container>
-			<AppBar position="static">
+			<AppBar position="fixed" >
 				<Toolbar>
 					<Grid container spacing={2}>
 						<Grid item xs={1}>

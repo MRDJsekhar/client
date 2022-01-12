@@ -4,6 +4,7 @@ import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import IconButton from '@material-ui/core/IconButton';
 import { Stack, Grid, TextField, Button } from '@mui/material';
 import { v4 as uuidv4 } from 'uuid';
+
 import useStyles from './useStyle';
 
 function ClassofAccuracy() {
@@ -15,10 +16,15 @@ function ClassofAccuracy() {
 		console.log('InputFields', inputFields);
 	};
 
-	const handleChangeInput = (index, event) => {
-		const values = [ ...inputFields ];
-		values[index][event.target.name] = event.target.value;
-		setInputFields(values);
+	const handleChangeInput = (id, event) => {
+		const newInputFields = inputFields.map((i) => {
+			if (id === i.id) {
+				i[event.target.name] = event.target.value;
+			}
+			return i;
+		});
+
+		setInputFields(newInputFields);
 	};
 
 	const handleAddFields = () => {
@@ -39,8 +45,8 @@ function ClassofAccuracy() {
 	return (
 		<Grid container direction="column" alignItems="center" justify="center">
 			<form className={classes.root} onSubmit={handleSubmit}>
-				{inputFields.map((inputField, index) => (
-					<div key={index}>
+				{inputFields.map((inputField) => (
+					<div key={inputField.id}>
 						<IconButton
 							disabled={inputFields.length === 1}
 							onClick={() => handleRemoveFields(inputField.id)}
@@ -48,13 +54,12 @@ function ClassofAccuracy() {
 							<RemoveCircleIcon />
 						</IconButton>
 						<TextField
-							name="classOfAccuracy"
+							name="firstName"
 							label="Class of Accuracy"
 							variant="standard"
-							value={inputField.classOfAccuracy}
-							onChange={(event) => handleChangeInput(index, event)}
+							value={inputField.firstName}
+							onChange={(event) => handleChangeInput(inputField.id, event)}
 						/>
-
 						<IconButton onClick={handleAddFields}>
 							<AddCircleIcon />
 						</IconButton>
@@ -63,11 +68,19 @@ function ClassofAccuracy() {
 				<br />
 				<Grid container direction="column" alignItems="center" justify="center">
 					<Stack spacing={2} direction="row">
-						<Button variant="outlined" color="error" onClick={clearField}>
+						<Button
+							style={{ maxWidth: '400px', maxHeight: '30px', minWidth: '100px', minHeight: '30px' }}
+							variant="outlined"
+							color="error"
+							onClick={clearField}
+						>
 							Clear
 						</Button>
-
-						<Button variant="contained" onClick={handleSubmit}>
+						<Button
+							style={{ maxWidth: '400px', maxHeight: '200px', minWidth: '100px', minHeight: '30px' }}
+							variant="contained"
+							onClick={addField}
+						>
 							Submit
 						</Button>
 					</Stack>

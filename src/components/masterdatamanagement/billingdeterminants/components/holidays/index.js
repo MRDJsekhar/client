@@ -8,9 +8,9 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import PreviousYear from './PreviousYear';
-import CurrentYear from './CurrentYear';
+import CurrentYear from './CurrentYear.js';
 import NextYear from './NextYear';
-// import Demo from '../Demo';
+import Demo from '../Demo';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -87,6 +87,7 @@ export default function Holidays() {
 				</TabPanel>
 				<TabPanel value={value} index={2} dir={theme.direction}>
 					<NextYear />
+					<Demo />
 				</TabPanel>
 			</SwipeableViews>
 		</Box>
