@@ -11,7 +11,8 @@ import CustomizedAccordions from '../components/staticComponents/DropDown';
 const HomePage = () => {
 	const component = useSelector((state) => state.componentChange.component);
 	//const scrolllRef = useRef(null);
-
+	
+	
 	return (
 		<div>
 			<Grid container rowSpacing={8} spacing={0}>

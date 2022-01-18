@@ -1,53 +1,61 @@
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
+import React, { useState } from 'react';
+import { Grid, TextField, Button } from '@material-ui/core';
+import { Stack } from '@mui/material';
+import useStyles from './UseStyle';
 
-export default function PreviousYear() {
-	const [ value, setValue ] = React.useState(null);
+export default function CurrentYear() {
+	const classes = useStyles();
+	const [ inputFields, setInputFields ] = useState([ { holidayName: '', date: '' } ]);
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log('InputFields', inputFields);
+	};
+
+	const handleChangeInput = (index, event) => {
+		const values = [ ...inputFields ];
+		values[index][event.target.name] = event.target.value;
+		setInputFields(values);
+	};
+
+	const clearField = () => {
+		alert('elements cleared');
+	};
 	return (
-		<LocalizationProvider dateAdapter={AdapterDateFns}>
-			<Box
-				sx={{
-					display: 'flex',
-					justifyContent: 'flex-start',
-					p: 1,
-					m: 1,
-					bgcolor: 'background.paper'
-				}}
-			>
-				<div>
-					<TextField id="outlined-basic" label="Holiday" variant="outlined" />
+		<Grid container direction="column" alignItems="center" justify="center">
+			<form className={classes.root} onSubmit={handleSubmit}>
+				{inputFields.map((inputField, index) => (
+					<div key={index}>
+						<TextField
+							name="holidayName"
+							label="Holiday Name"
+							variant="standard"
+							value={inputField.holidayName}
+							onChange={(event) => handleChangeInput(index, event)}
+						/>
+						<TextField
+							name="date"
+							type="date"
+							label="Holiday Date"
+							variant="standard"
+							value={inputField.date}
+							onChange={(event) => handleChangeInput(index, event)}
+						/>
+					</div>
+				))}
+				<br />
+				<Grid container direction="column" alignItems="center" justify="center">
+					<Stack spacing={2} direction="row">
+						<Button variant="outlined" color="error" onClick={clearField}>
+							Clear
+						</Button>
 
-					<Button
-						onClick={() => {
-							alert('After submitting data cannot be deleted, would you like to proceed?');
-						}}
-					>
-						submit
-					</Button>
-					<Button
-						onClick={() => {
-							alert('error');
-						}}
-					>
-						clear
-					</Button>
-				</div>
-				<DatePicker
-					label="Previous year"
-					size="small"
-					value={value}
-					onChange={(newValue) => {
-						setValue(newValue);
-					}}
-					renderInput={(params) => <TextField {...params} />}
-				/>
-			</Box>
-		</LocalizationProvider>
+						<Button variant="contained" onClick={handleSubmit}>
+							Submit
+						</Button>
+					</Stack>
+				</Grid>
+			</form>
+		</Grid>
 	);
 }

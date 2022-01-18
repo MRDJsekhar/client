@@ -1,74 +1,120 @@
 import * as React from 'react';
+import { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
-import Button from '@mui/material/Button';
-import Box from '@mui/material/Box';
-import { Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
+import Button from '@mui/material/Button';
 
-export default function Seasons() {
-	const [ value, setValue ] = React.useState(null);
+function SeasonsContent() {
+	const [ inputFields, setInputFields ] = useState([ { fromdate: '', todate: '' } ]);
+
+	const handleChangeInput = (index, event) => {
+		const values = [ ...inputFields ];
+		values[index][event.target.name] = event.target.value;
+		setInputFields(values);
+	};
 
 	return (
-		<LocalizationProvider dateAdapter={AdapterDateFns}>
-			<Box
-				sx={{
-					display: 'flex',
-					justifyContent: 'flex-start',
-					p: 1,
-					m: 1,
-					bgcolor: 'background.paper'
-				}}
-			>
-				<Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 1, md: 1 }}>
-					<Grid item xs={1}>
-						<Typography variant="h7" gutterBottom>
-							Season 1
-						</Typography>
-					</Grid>
-
-					<Grid item xs={2}>
-						<DatePicker
-							label="Start Date"
-							variant="Standard"
-							value={value}
-							onChange={(newValue) => {
-								setValue(newValue);
-							}}
-							renderInput={(params) => <TextField {...params} />}
-						/>
-					</Grid>
-
-					<Grid item xs={2}>
-						<DatePicker
-							label="End Date"
-							size="small"
-							variant="Standard"
-							value={value}
-							onChange={(newValue) => {
-								setValue(newValue);
-							}}
-							renderInput={(params) => <TextField {...params} />}
-						/>
-					</Grid>
+		<Grid spacing={3}>
+			<Stack spacing={2} direction="row">
+				<Grid item xs={5}>
+					<TextField
+						name="fromdate"
+						type="date"
+						label="Holiday Date"
+						variant="standard"
+						value={inputFields.date}
+						onChange={(event) => handleChangeInput(event)}
+					/>
 				</Grid>
-			</Box>
-			<Button
-				onClick={() => {
-					alert('After submitting data cannot be deleted, would you like to proceed?');
-				}}
+				<Grid item xs={2}>
+					<TextField
+						name="todate"
+						type="date"
+						label="Holiday Date"
+						variant="standard"
+						value={inputFields.date}
+						onChange={(event) => handleChangeInput(event)}
+					/>
+				</Grid>
+			</Stack>
+		</Grid>
+	);
+}
+
+export default function Seasons() {
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log('submitted');
+	};
+
+	const clearField = () => {
+		alert('elements cleared');
+	};
+	return (
+		<form onSubmit={handleSubmit}>
+			<Grid
+				container
+				rowSpacing={5}
+				columnSpacing={{ xs: 1, sm: 1, md: 1 }}
+				justifyContent="center"
+				sx={{ marginLeft: 'auto' }}
+				alignItems="center"
+				justify="center"
 			>
-				submit
-			</Button>
-			<Button
-				onClick={() => {
-					alert('error');
-				}}
-			>
-				clear
-			</Button>
-		</LocalizationProvider>
+				<Grid item xs={2} />
+				<Grid item xs={3}>
+					<Typography variant="h7" gutterBottom>
+						Season 1 :
+					</Typography>
+				</Grid>
+				<Grid item xs={5}>
+					<SeasonsContent />
+				</Grid>
+				<Grid item xs={2} />
+				<Grid item xs={2} />
+				<Grid item xs={3}>
+					<Typography variant="h7" gutterBottom>
+						Season 2 :
+					</Typography>
+				</Grid>
+				<Grid item xs={5}>
+					<SeasonsContent />
+				</Grid>
+				<Grid item xs={2} />
+				<Grid item xs={2} />
+				<Grid item xs={3}>
+					<Typography variant="h7" gutterBottom>
+						Season 3 :
+					</Typography>
+				</Grid>
+				<Grid item xs={5}>
+					<SeasonsContent />
+				</Grid>
+				<Grid item xs={2} />
+				<Grid item xs={2} />
+				<Grid item xs={3}>
+					<Typography variant="h7" gutterBottom>
+						Season 4 :
+					</Typography>
+				</Grid>
+				<Grid item xs={5}>
+					<SeasonsContent />
+				</Grid>
+				<Grid item xs={2} />
+
+				<Grid container direction="column" alignItems="center" justify="center" paddingTop={2}>
+					<Stack spacing={2} direction="row">
+						<Button variant="outlined" color="error" onClick={clearField}>
+							Clear
+						</Button>
+
+						<Button variant="contained" onClick={handleSubmit}>
+							Submit
+						</Button>
+					</Stack>
+				</Grid>
+			</Grid>
+		</form>
 	);
 }

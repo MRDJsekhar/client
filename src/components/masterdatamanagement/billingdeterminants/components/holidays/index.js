@@ -10,7 +10,6 @@ import Box from '@mui/material/Box';
 import PreviousYear from './PreviousYear';
 import CurrentYear from './CurrentYear.js';
 import NextYear from './NextYear';
-import Demo from '../Demo';
 
 function TabPanel(props) {
 	const { children, value, index, ...other } = props;
@@ -58,22 +57,22 @@ export default function Holidays() {
 	};
 
 	return (
-		<Box sx={{ bgcolor: 'background.paper', width: 500 }}>
+		<Box sx={{ width: 500, borderColor: 'primary.main' }}>
 			<AppBar position="static">
 				<Tabs
 					value={value}
 					onChange={handleChange}
-					indicatorColor="secondary"
-					textColor="inherit"
+					indicatorColor="primary"
+					textColor="inhiritance"
 					variant="fullWidth"
-					aria-label="full width tabs example"
+					aria-label="action tabs example"
 				>
-					<Tab label="Previous year" {...a11yProps(0)} />
-					<Tab label="current year" {...a11yProps(1)} />
-					<Tab label="next year" {...a11yProps(2)} />
+					<Tab label="Previvous Year" {...a11yProps(0)} />
+					<Tab label="Current Year" {...a11yProps(1)} />
+					<Tab label="Next Year" {...a11yProps(2)} />
 				</Tabs>
 			</AppBar>
-			<br />
+
 			<SwipeableViews
 				axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
 				index={value}
@@ -87,7 +86,6 @@ export default function Holidays() {
 				</TabPanel>
 				<TabPanel value={value} index={2} dir={theme.direction}>
 					<NextYear />
-					<Demo />
 				</TabPanel>
 			</SwipeableViews>
 		</Box>

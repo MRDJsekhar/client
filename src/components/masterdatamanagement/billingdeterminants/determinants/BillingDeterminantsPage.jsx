@@ -5,11 +5,11 @@ import Tab from '@mui/material/Tab';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import WaterDamageIcon from '@mui/icons-material/WaterDamage';
-import {Typography, AppBar,Box,CssBaseline,Toolbar, Container} from '@mui/material';
-import Holidays from '../components/holidays';
+import { Typography, AppBar, Box, CssBaseline, Toolbar, Container } from '@mui/material';
 import Timezone from '../components/timezones/TimeZone';
+import Holidays from '../components/holidays';
 import { Grid } from '@mui/material';
-import Seasons from '../components/seasons/Seasons';
+import Seasons from '../components/seasons/Seasons'
 import { flexbox } from '@mui/system';
 import TabList from '@mui/lab/TabList';
 import { TabContext } from '@mui/lab';
@@ -19,21 +19,20 @@ function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-     <>
-
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
+    <>
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box sx={{ p: 3 }}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
     </>
   );
 }
@@ -57,56 +56,59 @@ export default function BillingDeterminants() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
- 
- 
+
+
   return (
-    
-     <>
-    <CssBaseline />
-    <AppBar position="relative">
-    <Toolbar > 
-    <Box sx={{ width: '100%', maxWidth: 500 }}>
-    
-      <Typography  variant='h6' gutterBottom component="div">Master Data Management</Typography>
-      <Typography variant="h6" gutterBottom component="div">Billing Determinants </Typography>
-      </Box>
-    </Toolbar>
+    <>
+      <CssBaseline />
+      <AppBar position="relative">
+        <Toolbar >
+          <Box sx={{ width: '100%', maxWidth: 500 }}>
+
+            <Typography variant='h6' gutterBottom component="div">Master Data Management</Typography>
+            <Typography variant="h6" gutterBottom component="div">Billing Determinants </Typography>
+          </Box>
+        </Toolbar>
       </AppBar>
 
-    
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider', bgcolor: 'primary', width:flexbox  }}>
 
-      <Grid container justifyContent="flex-end"sx={{'marginLeft':'auto'}} >
-
-          <AppBar position="relative" color="inherit" size="small" container justifyContent="center"  > 
-
-          <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+      <Box sx={{ width: '100%' }}>
+        <Box sx={{ borderBottom: 1, borderColor: 'divider', bgcolor: 'primary', width: flexbox }}>
 
 
-        <Tabs value={value}
-          onChange={handleChange}
-          indicatorColor="secondary"
-          textColor="inherit"
-          variant="fullWidth"
-          aria-label="full width tabs example">
 
-          <Tab icon={<AccessTimeFilledIcon />}label="Timezones" {...a11yProps(0)} />
-          <Tab icon={<HolidayVillageIcon  />} label="Holidays" {...a11yProps(2)} />
-          <Tab icon={<WaterDamageIcon />}label="Seasons" {...a11yProps(4)} />
-  
-        </Tabs>
-        </TabList>
+          <AppBar position="relative" color="inherit" size="small" container justifyContent="center"  >
+            <Grid container justifyContent="center" sx={{ 'marginLeft': 'auto' }} alignItems="center" justify="center" >
+
+              <TabContext value={value}>
+                <Box sx={{ borderBottom: 2, borderColor: 'primary.main' }}>
+                  <TabList onChange={handleChange} aria-label="lab API tabs example">
+
+
+                    <Tabs value={value}
+                      onChange={handleChange}
+                      indicatorColor="secondary"
+                      textColor="inherit"
+                      variant="fullwidth"
+                      aria-label="full width tabs example">
+
+                      <Tab icon={<AccessTimeFilledIcon />} label="Timezones" {...a11yProps(0)} />
+                      <Tab icon={<HolidayVillageIcon />} label="Holidays" {...a11yProps(2)} />
+                      <Tab icon={<WaterDamageIcon />} label="Seasons" {...a11yProps(4)} />
+
+                    </Tabs>
+                  </TabList>
+                </Box>
+              </TabContext>
+            </Grid>
+          </AppBar>
+
         </Box>
-        </TabContext>  
-        </AppBar>
-        </Grid>
-      </Box>
-      
+        <Grid container justifyContent="center" sx={{ 'marginLeft': 'auto' }} alignItems="center"  >
+
+
           <TabPanel value={value} index={0}>
-            <Timezone /> 
+            <Timezone />
           </TabPanel>
           <TabPanel value={value} index={1}>
             <Holidays />
@@ -114,7 +116,9 @@ export default function BillingDeterminants() {
           <TabPanel value={value} index={2}>
             <Seasons />
           </TabPanel>
-     </Box>
+
+        </Grid>
+      </Box>
     </>
   );
 }

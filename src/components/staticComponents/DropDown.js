@@ -103,6 +103,48 @@ export default function CustomizedAccordions() {
 					</Typography>
 				</AccordionDetails>
 			</Accordion>
+			<Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+				<AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
+					<Typography>Reports</Typography>
+				</AccordionSummary>
+				<AccordionDetails>
+					<Typography
+						gutterBottom
+						onClick={() => {
+							dispatch({ type: 'am-summary' });
+						}}
+						style={{ cursor: 'pointer' }}
+					>
+						Asset Mgmt-Summary
+					</Typography>
+					<Typography
+						gutterBottom
+						onClick={() => {
+							dispatch({ type: 'am-installed' });
+						}}
+						style={{ cursor: 'pointer' }}
+					>
+						Asset Mgmt-Installed
+					</Typography>
+					<Typography
+						gutterBottom
+						onClick={() => {
+							dispatch({ type: 'am-communicated' });
+						}}
+						style={{ cursor: 'pointer' }}
+					>
+						Asset Mgmt-Communicated
+					</Typography>
+					<Typography
+						onClick={() => {
+							dispatch({ type: 'am-commissioned' });
+						}}
+						style={{ cursor: 'pointer' }}
+					>
+						Asset Mgmt-Commissioned
+					</Typography>
+				</AccordionDetails>
+			</Accordion>
 		</div>
 	);
 }

@@ -46,6 +46,30 @@ const componentChange = (state = initialState, action) => {
 				component: 'BillingDeterminants'
 			};
 		}
+		case 'am-summary': {
+			return {
+				...state,
+				component: 'AMSummary'
+			};
+		}
+		case 'am-installed': {
+			return {
+				...state,
+				component: 'AMInstalled'
+			};
+		}
+		case 'am-communicated': {
+			return {
+				...state,
+				component: 'AMCommunicated'
+			};
+		}
+		case 'am-commissioned': {
+			return {
+				...state,
+				component: 'AMComissioned'
+			};
+		}
 
 		default: {
 			return state;
