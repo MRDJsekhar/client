@@ -1,128 +1,230 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, Grid } from '@mui/material';
 import { TextField } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import Button from '@material-ui/core/Button';
 import { Stack } from '@mui/material';
-import Paper from '@mui/material/Paper';
 import { Box } from '@mui/material';
 import { CssBaseline } from '@mui/material';
-import useStyles from './UseStyle';
-import InstalledDate from './InstalledDate';
-import CommisonedDate from './CommisonedDate';
-
-const Item = styled(Paper)(({ theme }) => ({
-	...theme.typography.body2,
-	padding: theme.spacing(1),
-	textAlign: 'center',
-	color: theme.palette.text.secondary
-}));
+import { SubStation } from './DropDown';
 
 const DcuConfiguration = () => {
-	const classes = useStyles();
+	const initialValues = {
+		dcuSerialNo: '',
+		selectDCUMake: '',
+		selectType: '',
+		selectStatus: '',
+		latitude: '',
+		longitude: '',
+		installeddate: '',
+		commisiondate: '',
+		ipAddress: '',
+		firmwareVersion: '',
+		hesId: ''
+	};
+
+	const [ values, setValues ] = useState(initialValues);
+	const handleInputChange = (e) => {
+		const { name, value } = e.target;
+		setValues({
+			...values,
+			[name]: value
+		});
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log('InputFields', values);
+		setValues({
+			dcuSerialNo: '',
+			selectDCUMake: '',
+			selectType: '',
+			selectStatus: '',
+			latitude: '',
+			longitude: '',
+			installeddate: '',
+			commisiondate: '',
+			ipAddress: '',
+			firmwareVersion: '',
+			hesId: ''
+		});
+	};
+
 	return (
-		<Card elevation={5}>
-			<Box
-				component="form"
-				sx={{
-					'& .MuiTextField-root': { m: 2, width: '25ch' }
-				}}
-				noValidate
-				autoComplete="off"
-			>
-				<CssBaseline />
-
-				<Box sx={{ display: 'flex', p: 1, m: 1, bgcolor: 'background.paper', flexDirection: 'row' }} />
-
-				<div>
+		<form action="" onSubmit={handleSubmit}>
+			<Card elevation={5}>
+				<Box
+					component="form"
+					sx={{
+						'& .MuiTextField-root': { m: 2, width: '25ch' }
+					}}
+					noValidate
+					autoComplete="off"
+				>
+					<CssBaseline />
+					<Box sx={{ display: 'flex', p: 1, m: 1, bgcolor: 'background.paper', flexDirection: 'row' }} />
+					<div>
+						<Grid container direction="row" justifyContent="center" alignContent="center">
+							<TextField
+								name="dcuSerialNo"
+								id="outlined-select-currency-native"
+								required
+								label="DCU Serial No :"
+								defaultValue=""
+								value={values.dcuSerialNo}
+								onChange={handleInputChange}
+							/>
+							<TextField
+								name="selectDCUMake"
+								id="outlined-select-currency-native"
+								select
+								required
+								label="Select DCU Make :"
+								value={values.selectDCUMake}
+								onChange={handleInputChange}
+								SelectProps={{
+									native: true
+								}}
+							>
+								{SubStation.map((option) => (
+									<option key={option.label} value={option.label}>
+										{option.label}
+									</option>
+								))}
+							</TextField>
+						</Grid>
+					</div>
 					<Grid container direction="row" justifyContent="center" alignContent="center">
 						<TextField
-							id="outlined-select-currency-native"
-							required
-							label="DCU Serial No :"
-							defaultValue=""
-						/>
-
-						<TextField
+							name="selectType"
 							id="outlined-select-currency-native"
 							select
 							required
-							label="Select DCU Make :"
+							label="Select Type :"
+							value={values.selectType}
+							onChange={handleInputChange}
+							SelectProps={{
+								native: true
+							}}
+						>
+							{SubStation.map((option) => (
+								<option key={option.label} value={option.label}>
+									{option.label}
+								</option>
+							))}
+						</TextField>
+						<TextField
+							name="selectStatus"
+							id="outlined-select-currency-native"
+							select
+							required
+							label="Select Status :"
+							value={values.selectStatus}
+							onChange={handleInputChange}
+							SelectProps={{
+								native: true
+							}}
+						>
+							{SubStation.map((option) => (
+								<option key={option.label} value={option.label}>
+									{option.label}
+								</option>
+							))}
+						</TextField>
+					</Grid>
+					<Grid container direction="row" justifyContent="center" alignContent="center">
+						<TextField
+							name="latitude"
+							id="outlined-select-currency-native"
+							required
+							label="Latitude(Degrees) :"
+							value={values.latitude}
+							onChange={handleInputChange}
+							SelectProps={{
+								native: true
+							}}
+						/>
+						<TextField
+							name="longitude"
+							id="outlined-select-currency-native"
+							required
+							label="Longitude(Degrees) :"
+							value={values.longitude}
+							onChange={handleInputChange}
 							SelectProps={{
 								native: true
 							}}
 						/>
 					</Grid>
-				</div>
-				<Grid container direction="row" justifyContent="center" alignContent="center">
-					<TextField
-						id="outlined-select-currency-native"
-						select
-						required
-						label="Select Type :"
-						SelectProps={{
-							native: true
-						}}
-					/>
-
-					<TextField
-						id="outlined-select-currency-native"
-						select
-						required
-						label="Select Status :"
-						SelectProps={{
-							native: true
-						}}
-					/>
-				</Grid>
-
-				<Grid container direction="row" justifyContent="center" alignContent="center">
-					<TextField
-						id="outlined-select-currency-native"
-						required
-						label="Latitude(Degrees) :"
-						SelectProps={{
-							native: true
-						}}
-					/>
-					<TextField
-						id="outlined-select-currency-native"
-						required
-						label="Longitude(Degrees) :"
-						SelectProps={{
-							native: true
-						}}
-					/>
-				</Grid>
-
-				<Grid container direction="row" justifyContent="center" alignContent="center">
-					<InstalledDate />
-
-					<CommisonedDate />
-				</Grid>
-
-				<Grid container direction="row" justifyContent="center" alignContent="center">
-					<div>
-						<TextField id="outlined-select-currency-native" required label="IP Address :" />
-						<TextField id="outlined-select-currency-native" required label="Firmware Version : " />
-					</div>
-				</Grid>
-
-				<Grid container direction="row" justifyContent="center" alignContent="center">
-					<div>
-						<TextField id="outlined-select-currency-native" required label="HES Id :" />
-					</div>
-				</Grid>
-			</Box>
-
-			<Stack spacing={2} direction="row" justifyContent="center">
-				<Button variant="outlined" color="error">
-					Clear
-				</Button>
-				<Button variant="contained">Submit</Button>
-			</Stack>
-			<br />
-		</Card>
+					<Grid container direction="row" justifyContent="center" alignContent="center">
+						<TextField
+							name="installeddate"
+							id="installeddate"
+							label="Installed Date "
+							type="date"
+							value={values.installeddate}
+							onChange={handleInputChange}
+							sx={{ width: 220 }}
+							InputLabelProps={{
+								shrink: true
+							}}
+						/>
+						<TextField
+							name="commisiondate"
+							id="commisiondate"
+							label="Commission Date "
+							type="date"
+							value={values.commisiondate}
+							onChange={handleInputChange}
+							sx={{ width: 220 }}
+							InputLabelProps={{
+								shrink: true
+							}}
+						/>
+					</Grid>
+					<Grid container direction="row" justifyContent="center" alignContent="center">
+						<div>
+							<TextField
+								name="ipAddress"
+								id="outlined-select-currency-native"
+								required
+								label="IP Address :"
+								value={values.ipAddress}
+								onChange={handleInputChange}
+							/>
+							<TextField
+								name="firmwareVersion"
+								id="outlined-select-currency-native"
+								required
+								label="Firmware Version : "
+								value={values.firmwareVersion}
+								onChange={handleInputChange}
+							/>
+						</div>
+					</Grid>
+					<Grid container direction="row" justifyContent="center" alignContent="center">
+						<div>
+							<TextField
+								name="hesId"
+								id="outlined-select-currency-native"
+								required
+								label="HES Id :"
+								value={values.hesId}
+								onChange={handleInputChange}
+							/>
+						</div>
+					</Grid>
+				</Box>
+				<Stack spacing={2} direction="row" justifyContent="center">
+					<Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>
+						Submit
+					</Button>
+					<Button variant="outlined" color="error">
+						Clear
+					</Button>
+				</Stack>
+				<br />
+			</Card>
+		</form>
 	);
 };
 export default DcuConfiguration;
