@@ -83,7 +83,7 @@ export default function CurrentYear() {
 			<br />
 			<Grid container direction="column" alignItems="center" justify="center">
 				<Stack spacing={2} direction="row">
-					<Button variant="outlined" color="error" onClick={clearField}>
+					<Button variant="outlined" type="reset" color="inherit" onClick={clearField}>
 						Clear
 					</Button>
 

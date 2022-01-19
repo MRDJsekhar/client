@@ -61,7 +61,7 @@ export default function BillingDeterminants() {
   return (
     <>
       <CssBaseline />
-      <AppBar position="relative">
+      <AppBar position="static" style={{ background: '#2E3B55' }}>
         <Toolbar >
           <Box sx={{ width: '100%', maxWidth: 500 }}>
 
@@ -77,7 +77,7 @@ export default function BillingDeterminants() {
 
 
 
-          <AppBar position="relative" color="inherit" size="small" container justifyContent="center"  >
+          
             <Grid container justifyContent="center" sx={{ 'marginLeft': 'auto' }} alignItems="center" justify="center" >
 
               <TabContext value={value}>
@@ -101,7 +101,7 @@ export default function BillingDeterminants() {
                 </Box>
               </TabContext>
             </Grid>
-          </AppBar>
+          
 
         </Box>
         <Grid container justifyContent="center" sx={{ 'marginLeft': 'auto' }} alignItems="center"  >

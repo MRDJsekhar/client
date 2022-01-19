@@ -1,23 +1,25 @@
-import { Typography, AppBar, Box, CssBaseline, Toolbar, } from '@mui/material';
+import { Typography, AppBar, Box, CssBaseline, Toolbar, IconButton, } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const NavBar=()=>{
     return(
-        <>
+        <div>
         <CssBaseline />
-        <AppBar position="relative">
-          <Toolbar >
-            <Box sx={{ width: '100%', maxWidth: 500 }}>
-              <Typography variant='h6' gutterBottom component="div"><HomeIcon /><KeyboardArrowRightIcon />Asset Management</Typography>
-        
-              <Typography variant="h6" gutterBottom component="div">Meter Search</Typography>
-        
-            </Box>
-        
-          </Toolbar>
-        </AppBar>
-        </>
+        <AppBar position="static" style={{ background: '#2E3B55' }}>
+				<Toolbar>
+					<IconButton size="large" edge="start" color="inherit" aria-label="open drawer">
+						<HomeIcon style={{ color: 'black' }} />
+					</IconButton>
+					<IconButton size="large" edge="start" color="inherit" aria-label="open drawer">
+						<ChevronRightIcon style={{ color: 'black' }} />
+					</IconButton>
+					<Typography>Asset Management</Typography>
+				</Toolbar>
+				<Typography style={{ marginRight: 'auto', marginLeft: '20px' }}>Meter Search</Typography>
+			</AppBar>
+        </div>
 
     )
 }

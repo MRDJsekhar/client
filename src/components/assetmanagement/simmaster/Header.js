@@ -6,7 +6,7 @@ import HomeIcon from '@mui/icons-material/Home';
 const SimAppBar = () => {
 	return (
 		<Box sx={{ flexGrow: 1 }}>
-			<AppBar position="static">
+			<AppBar position="static" style={{ background: '#2E3B55' }}>
 				<Toolbar>
 					<IconButton size="large" edge="start" color="inherit" aria-label="open drawer">
 						<HomeIcon style={{ color: 'black' }} />
@@ -16,7 +16,7 @@ const SimAppBar = () => {
 					</IconButton>
 					<Typography>Asset Management</Typography>
 				</Toolbar>
-				<Typography style={{ marginRight: 'auto' }}>Maintain SIM</Typography>
+				<Typography style={{ marginRight: 'auto', marginLeft: '20px' }}>Maintain SIM</Typography>
 			</AppBar>
 		</Box>
 	);

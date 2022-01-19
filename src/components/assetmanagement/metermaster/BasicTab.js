@@ -1,6 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Tabs, Tab, Typography, Box, Grid } from '@mui/material';
+import { Tabs, Tab, Typography, Box, Grid, CssBaseline } from '@mui/material';
 import Metermaster from './newmeter/Metermaster';
 import Category from './newmeter/Category';
 import Make from './newmeter/Type';
@@ -50,6 +50,8 @@ export default function BasicTabs() {
 	};
 
 	return (
+		<>
+		<CssBaseline/>
 		<Grid container direction="column" alignItems="center" justify="center">
 			<Box sx={{ width: '100%' }}>
 				<Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -88,5 +90,6 @@ export default function BasicTabs() {
 				</TabPanel>
 			</Box>
 		</Grid>
+		</>
 	);
 }
