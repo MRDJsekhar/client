@@ -5,7 +5,7 @@ import Tab from '@mui/material/Tab';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import HolidayVillageIcon from '@mui/icons-material/HolidayVillage';
 import WaterDamageIcon from '@mui/icons-material/WaterDamage';
-import { Typography, AppBar, Box, CssBaseline, Toolbar, Container } from '@mui/material';
+import { Typography, AppBar, Box, CssBaseline, Toolbar, Container, IconButton } from '@mui/material';
 import Timezone from '../components/timezones/TimeZone';
 import Holidays from '../components/holidays';
 import { Grid } from '@mui/material';
@@ -59,17 +59,17 @@ export default function BillingDeterminants() {
 
 
   return (
-    <>
+    <div>
       <CssBaseline />
+     
       <AppBar position="static" style={{ background: '#2E3B55' }}>
-        <Toolbar >
-          <Box sx={{ width: '100%', maxWidth: 500 }}>
-
-            <Typography variant='h6' gutterBottom component="div">Master Data Management</Typography>
-            <Typography variant="h6" gutterBottom component="div">Billing Determinants </Typography>
-          </Box>
-        </Toolbar>
-      </AppBar>
+				<Toolbar>
+					<Typography>Master Data Management</Typography>
+				</Toolbar>
+				<Typography style={{ marginRight: 'auto', marginLeft: '20px' }}>
+        Billing Determinants
+				</Typography>
+			</AppBar>
 
 
       <Box sx={{ width: '100%' }}>
@@ -119,6 +119,6 @@ export default function BillingDeterminants() {
 
         </Grid>
       </Box>
-    </>
+    </div>
   );
 }

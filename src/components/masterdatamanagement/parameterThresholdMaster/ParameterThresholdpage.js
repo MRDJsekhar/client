@@ -3,10 +3,10 @@ import React from 'react';
 import PTAppBar from './ptcChildComponents/PTAppbar';
 import PTMCard from './ptcChildComponents/PTMCard';
 
-export function ParameterThresholdpage() {
+export default function ParameterThresholdpage() {
 	return (
 		<div>
-			<CssBaseline/>
+			<CssBaseline />
 			<PTAppBar />
 			<PTMCard />
 		</div>

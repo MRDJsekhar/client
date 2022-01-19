@@ -10,28 +10,21 @@ import { Container } from '@mui/material';
 import { Tooltip } from '@mui/material';
 import Menu from '@mui/material/Menu';
 import { Grid } from '@mui/material';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const PTAppBar = () => {
 	return (
-		<AppBar position="static">
-			<Container maxWidth="xl">
-				<Toolbar disableGutters>
-					<Grid container>
-						<Grid item spacing={1}>
-							<HomeIcon />
-						</Grid>
-						<Grid item spacing={1}>
-							<ArrowForwardIosIcon />
-						</Grid>
-						<Grid item spacing={5}>
-							<Typography variant="h6">Configuration</Typography>
-						</Grid>
-						<Grid item xs={12}>
-							<Typography variant="subtitle1">Parameter Threshold Master</Typography>
-						</Grid>
-					</Grid>
-				</Toolbar>
-			</Container>
+		<AppBar position="static" style={{ background: '#2E3B55' }}>
+			<Toolbar>
+				<IconButton size="large" edge="start" color="inherit" aria-label="open drawer">
+					<HomeIcon style={{ color: 'black' }} />
+				</IconButton>
+				<IconButton size="large" edge="start" color="inherit" aria-label="open drawer">
+					<ChevronRightIcon style={{ color: 'black' }} />
+				</IconButton>
+				<Typography>Configuration</Typography>
+			</Toolbar>
+			<Typography style={{ marginRight: 'auto',marginLeft: '20px'  }}>Parameter Threshold Master</Typography>
 		</AppBar>
 	);
 };

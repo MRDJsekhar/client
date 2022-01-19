@@ -44,7 +44,8 @@ const AMSummary = () => {
 			<Box sx={{ flexGrow: 1 }}>
 				<ResponsiveAppBar />
 			</Box>
-			<Box sx={{ width: '95%', marginLeft: '20px' }}>
+			<div style={{ padding: '20px' }} />
+			<Box sx={{ width: '90%', marginLeft: '20px' }}>
 				<Grid container direction={'row'} columnSpacing={5}>
 					<Grid item xl={6} md={3} xs={12} sm={6}>
 						<Typography variant="overline">Discom :</Typography>

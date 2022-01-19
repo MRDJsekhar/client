@@ -22,7 +22,9 @@ const ResponsiveAppBar = () => {
 					</IconButton>
 					<Typography>Reports</Typography>
 				</Toolbar>
-				<Typography style={{ marginRight: 'auto' }}>Asset Management - Commissioned Meters</Typography>
+				<Typography style={{ marginRight: 'auto', marginLeft: '20px' }}>
+					Asset Management - Commissioned Meters
+				</Typography>
 			</AppBar>
 		</Box>
 	);
