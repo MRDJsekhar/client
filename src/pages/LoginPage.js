@@ -39,7 +39,7 @@ const LoginPage = () => {
 						InputProps={{
 							startAdornment: (
 								<InputAdornment position="start">
-									<AccountCircle />{' '}
+									<AccountCircle />
 								</InputAdornment>
 							)
 						}}
