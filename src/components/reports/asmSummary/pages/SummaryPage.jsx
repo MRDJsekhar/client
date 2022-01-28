@@ -17,8 +17,8 @@ const AMSummary = () => {
 
 	const onDivision = (e) => {
 		console.log(e.target.value);
-		const subdivs = subdivisions.filter((div) => {
-			return div.div_name === e.target.value;
+		const subdivs = subdivisions.filter((subdiv) => {
+			return subdiv.div_name === e.target.value;
 		});
 		console.log(subdivs);
 		setDivision(e.target.value);
